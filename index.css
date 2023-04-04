@@ -1,0 +1,154 @@
+/*
+  .class
+  #id
+*/
+/*
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+*/
+
+:root {
+  --bg: hsl(176, 48%, 54%);
+  --cell-bg: hsl(151, 0%, 54%);
+  --cell-progress: hsl(123, 48%, 54%);
+  --cell-clickable: hsl(123, 0%, 74%);
+  --info-bg: hsl(60, 48%, 54%);
+  --rowInfo-bg: hsl(0, 0%, 77%);
+}
+
+body {
+  background-color: var(--bg);
+  overflow-x: scroll;
+  width: 250em;
+  font-family: 'Chivo Mono', monospace;
+  font-size: 10pt;
+  letter-spacing: -0.5pt;
+}
+
+#infoBox {
+  background-color: var(--info-bg);
+  position: fixed;
+  width: 28em;
+  /*height: 10em;*/
+  z-index: 100;
+  outline: 1px solid black;
+  padding: 0.5em;
+  box-shadow: 6px 6px 5px hsla(0, 0%, 0%, 0.5);
+}
+
+.title {
+  font-size: large;
+  font-weight: bold;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.cell {
+  width: 6.5em;
+  height: 4em;
+  outline: 1px solid black;
+  position: relative;
+  background-color: var(--cell-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: not-allowed;
+}
+
+.cellRowEnd {
+  box-shadow: 6px 6px 5px hsla(0, 0%, 0%, 0.5);
+}
+
+.cellClickable {
+  background-color: var(--cell-clickable);
+  cursor: default;
+}
+
+.cellContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 30;
+}
+
+.cellTime {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 30;
+  background: hsla(0, 0%, 100%, 0.5);
+}
+
+.progress {
+  width: 100%;
+  height: 0%;
+  background-color: limegreen;
+  position: absolute;
+  background: url('./p1.png');
+  background-size: cover;
+  background-position: center;
+  filter: opacity(0.5);
+}
+
+#infoProgressContainer {
+  width: 100%;
+  height: 1em;
+  background: white;
+  margin-bottom: 0.2em;
+  box-shadow: inset 1px 1px 3px -1px black;
+}
+
+#infoProgress {
+  width: 10%;
+  height: 1em;
+  background: var(--cell-progress);
+}
+
+#resetContainer {
+  display: none;
+  position: fixed;
+  background: white;
+  margin: 5em;
+  padding: 5em;
+  box-shadow: 6px 6px 5px hsla(0, 0%, 0%, 0.5);
+  z-index: 200; 
+  outline: 1px solid black;
+}
+
+#winContainer {
+  display: none;
+  position: fixed;
+  background: white;
+  z-index: 300;
+  box-shadow: 6px 6px 5px hsla(0, 0%, 0%, 0.5);
+  padding: 0.5em;
+  outline: 1px solid black;
+  animation: rainbow-bg 2.5s linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rainbow-bg {
+  100%,0%{
+    background-color: hsl(0, 48%, 54%);
+  }
+  33%{
+    background-color: hsl(120, 48%, 54%);
+  }
+  66%{
+    background-color: hsl(240, 48%, 54%);
+  }
+}
+
+#att {
+  text-align: right;
+  font-size: xx-small;
+  filter: opacity(0.2);
+}
